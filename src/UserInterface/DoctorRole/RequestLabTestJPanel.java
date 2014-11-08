@@ -4,7 +4,7 @@
  */
 package UserInterface.DoctorRole;
 
-import Business.Business;
+import Business.Enterprise.Enterprise;
 import Business.Organization.LabOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
@@ -19,16 +19,16 @@ import javax.swing.JPanel;
 public class RequestLabTestJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    private Business business;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public RequestLabTestJPanel(JPanel userProcessContainer, UserAccount account, Business business) {
+    public RequestLabTestJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-        this.business = business;
+        this.enterprise = enterprise;
         this.userAccount = account;
     }
 
@@ -104,7 +104,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         request.setStatus("Sent");
         
         Organization org = null;
-        for (Organization organization : business.getOrganizationDirectory().getOrganizationList()){
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
             if (organization instanceof LabOrganization){
                 org = organization;
                 break;

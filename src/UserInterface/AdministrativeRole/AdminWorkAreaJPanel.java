@@ -6,7 +6,7 @@
 
 package UserInterface.AdministrativeRole;
 
-import Business.Business;
+import Business.Enterprise.Enterprise;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -17,12 +17,13 @@ import javax.swing.JPanel;
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
-    Business business;
+    Enterprise enterprise;
+    
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer, Business business) {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.business = business;
+        this.enterprise = enterprise;
     }
     
     /** This method is called from within the constructor to
@@ -71,7 +72,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        ManageUserAccountJPanel muajp = new ManageUserAccountJPanel(userProcessContainer, business);
+        ManageUserAccountJPanel muajp = new ManageUserAccountJPanel(userProcessContainer, enterprise);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -80,7 +81,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
 
-        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, business.getOrganizationDirectory());
+        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -90,7 +91,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
 
-        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, business.getOrganizationDirectory());
+        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
         userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

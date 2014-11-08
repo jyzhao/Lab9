@@ -4,7 +4,7 @@
  */
 package UserInterface.DoctorRole;
 
-import Business.Business;
+import Business.Enterprise.Enterprise;
 import Business.Organization.DoctorOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
@@ -21,17 +21,17 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private DoctorOrganization organization;
-    private Business business;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public DoctorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, DoctorOrganization organization, Business business) {
+    public DoctorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, DoctorOrganization organization, Enterprise enterprise) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.organization = organization;
-        this.business = business;
+        this.enterprise = enterprise;
         this.userAccount = account;
         
         populateRequestTable();
@@ -147,7 +147,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("RequestLabTestJPanel", new RequestLabTestJPanel(userProcessContainer, userAccount, business));
+        userProcessContainer.add("RequestLabTestJPanel", new RequestLabTestJPanel(userProcessContainer, userAccount, enterprise));
         layout.next(userProcessContainer);
         
     }//GEN-LAST:event_requestTestJButtonActionPerformed

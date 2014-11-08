@@ -4,8 +4,8 @@
  */
 package UserInterface.AdministrativeRole;
 
-import Business.Business;
 import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
@@ -23,11 +23,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
      * Creates new form ManageUserAccountJPanel
      */
     private JPanel container;
-    private Business business;
+    private Enterprise enterprise;
 
-    public ManageUserAccountJPanel(JPanel container, Business business) {
+    public ManageUserAccountJPanel(JPanel container, Enterprise enterprise) {
         initComponents();
-        this.business = business;
+        this.enterprise = enterprise;
         this.container = container;
 
         popOrganizationComboBox();
@@ -38,7 +38,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     public void popOrganizationComboBox() {
         organizationJComboBox.removeAllItems();
 
-        for (Organization organization : business.getOrganizationDirectory().getOrganizationList()) {
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             organizationJComboBox.addItem(organization);
         }
     }
@@ -64,7 +64,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (Organization organization : business.getOrganizationDirectory().getOrganizationList()) {
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
                 Object row[] = new Object[2];
                 row[0] = ua;
